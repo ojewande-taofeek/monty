@@ -40,6 +40,7 @@ At the end of this project, you are expected to be able to explain to anyone, **
 - Don’t forget to push your header file
 - All your header files should be include guarded
 - You are expected to do the tasks in the order shown in the project
+
 '''
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -68,7 +69,8 @@ typedef struct stack_s
  {
         char *opcode;
         void (*f)(stack_t **stack, unsigned int line_number);
- } instruction_t;'''
+ } instruction_t;
+ '''
 
 ## Compilation & Output
 - Your code will be compiled this way:
@@ -97,7 +99,8 @@ push 2$
 		         push 5    $
 			       push    6        $
 			       pall$
-julien@ubuntu:~/monty$'''
+julien@ubuntu:~/monty$
+'''
 Monty byte code files can contain blank lines (empty or made of spaces only, and any additional text after the opcode or its required argument is not taken into account:
 '''
 julien@ubuntu:~/monty$ cat -e bytecodes/001.m
