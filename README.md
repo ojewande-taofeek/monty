@@ -41,8 +41,7 @@ At the end of this project, you are expected to be able to explain to anyone, **
 - All your header files should be include guarded
 - You are expected to do the tasks in the order shown in the project
 
-'''
-/**
+'''/**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
  * @prev: points to the previous element of the stack (or queue)
@@ -88,8 +87,8 @@ Monty 0.98 is a scripting language that is first compiled into Monty byte codes 
 ### Monty byte code files
 
 Files containing Monty byte codes usually have the *.m* extension. Most of the industry uses this standard but it is not required by the specification of the language. There is not more than one instruction per line. There can be any number of spaces before or after the opcode and its argument:
-'''
-julien@ubuntu:~/monty$ cat -e bytecodes/000.m
+
+'''julien@ubuntu:~/monty$ cat -e bytecodes/000.m
 push 0$
 push 1$
 push 2$
@@ -99,11 +98,11 @@ push 2$
 		         push 5    $
 			       push    6        $
 			       pall$
-julien@ubuntu:~/monty$
-'''
+julien@ubuntu:~/monty$'''
+
 Monty byte code files can contain blank lines (empty or made of spaces only, and any additional text after the opcode or its required argument is not taken into account:
-'''
-julien@ubuntu:~/monty$ cat -e bytecodes/001.m
+
+'''julien@ubuntu:~/monty$ cat -e bytecodes/001.m
 push 0 Push 0 onto the stack$
 push 1 Push 1 onto the stack$
 $
@@ -119,8 +118,8 @@ push 2$
 						          push    6        $
 							  $
 pall This is the end of our program. Monty is awesome!$
-julien@ubuntu:~/monty$
-'''
+julien@ubuntu:~/monty$'''
+
 ### The monty program
 
 - Usage: monty file
