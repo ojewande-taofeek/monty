@@ -28,7 +28,7 @@ void (*cmd_caller(char **buf_arr, unsigned int count, unsigned int line_number)
 		{
 			if ((strcmp(cmd, "push") == 0) && count != 2)
 			{				
-				fprintf(stderr, "L%d : unknown instruction %s\n", line_number, cmd);
+				fprintf(stderr, "L%d: usage: push integer\n", line_number);
 				exit(EXIT_FAILURE);
 			}
 			return (call[idx].f);
