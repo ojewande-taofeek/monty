@@ -23,9 +23,9 @@ void (*cmd_caller(char **b, size_t cnt, size_t line))(stack_t **top, char **b)
 	if (cnt > 1)
 	{
 		data = atoi(b[1]);
-		if ((strcmp("0", b[1]) != 0) && data == 0)
+		if (((strcmp("0", b[1]) != 0) && data == 0))
 		{
-			fprintf(stderr, "L%ld: unknown instruction %s\n", line, cmd);
+			fprintf(stderr, "L%ld: usage: push integer\n", line);
 			exit(EXIT_FAILURE);
 		}
 	}

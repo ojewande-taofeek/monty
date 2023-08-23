@@ -22,6 +22,18 @@ stack_t *create_node(int n)
 }
 
 /**
+ * is_empty - The fucntion checks if the top point to NULL
+ * @stack: The top of the stack
+ * Return: 1, if True
+ *         0, if otherwise
+ */
+
+int is_empty(stack_t *stack)
+{
+	return (!stack);
+}
+
+/**
  * push - The function that push to the top of the stack
  * Return: Nothing
  * @stack: The top of the stack
@@ -50,6 +62,9 @@ void pall(stack_t **stack, char **buf_array)
 	stack_t *current = *stack;
 	(void) buf_array;
 
+
+	if (is_empty(current))
+		return;
 	while (current != NULL)
 	{
 		printf("%d\n", current->n);
