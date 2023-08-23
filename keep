@@ -1,0 +1,6 @@
+
+			if (!(strcmp(cmd, "push") == 0) && cnt > 1)
+			{
+				fprintf(stderr, "L%ld: unknown instruction %s\n", line, cmd);
+				exit(EXIT_FAILURE);
+			}

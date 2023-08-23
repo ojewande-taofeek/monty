@@ -20,11 +20,14 @@ void (*cmd_caller(char **b, size_t cnt, size_t line))(stack_t **top, char **b)
 		{NULL, NULL}
 	};
 
-	if (cnt > 1)
+	if (cnt > 1 && (strcmp(cmd, "push") == 0))
 	{
 		data = atoi(b[1]);
-		if (((strcmp("0", b[1]) != 0) && data == 0))
+		if (strcmp("0", b[1]) == 0 && data == 0)
+			;
+		else if (data == 0)
 		{
+			printf("Printind from else if\n");
 			fprintf(stderr, "L%ld: usage: push integer\n", line);
 			exit(EXIT_FAILURE);
 		}
@@ -34,14 +37,9 @@ void (*cmd_caller(char **b, size_t cnt, size_t line))(stack_t **top, char **b)
 	{
 		if (strcmp(call[idx].opcode, cmd) == 0)
 		{
-			if ((strcmp(cmd, "push") == 0) && cnt != 2)
+			if ((strcmp(cmd, "push") == 0) && cnt < 2)
 			{
 				fprintf(stderr, "L%ld: usage: push integer\n", line);
-				exit(EXIT_FAILURE);
-			}
-			if (!(strcmp(cmd, "push") == 0) && cnt > 1)
-			{
-				fprintf(stderr, "L%ld: unknown instruction %s\n", line, cmd);
 				exit(EXIT_FAILURE);
 			}
 			return (call[idx].f);
