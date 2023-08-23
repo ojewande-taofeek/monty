@@ -10,7 +10,8 @@
 
 int main(int argc, char **argv)
 {
-	ssize_t fd, read_b, i, j, read_left, line_number = 0;
+	ssize_t fd, read_b, i, j, read_left;
+	size_t line = 0;
 	char *file_name, buffer[MAX_LENGTH], *buf_cpy;
 	stack_t *top = NULL;
 
@@ -18,7 +19,7 @@ int main(int argc, char **argv)
 	if (fd == 1)
 		return (EXIT_FAILURE);
 	file_name = argv[1];
-	read_b = read(fd, buffer, MAX_LENGTH)
+	read_b = read(fd, buffer, MAX_LENGTH);
 	if (read_b == -1)
 	{
 		fprintf(stderr, "Error: Can't read file %s\n", file_name);
@@ -36,8 +37,8 @@ int main(int argc, char **argv)
 			}
 			strncpy(buf_cpy, buffer, j);
 			buf_cpy[j] = '\0';
-			line_number++;
-			parser(buf_cpy, line_number, &top);
+			line++;
+			parser(buf_cpy, line, &top);
 			free(buf_cpy);
 			read_left = read_b - (i + 1);
 			read_b = read_left;

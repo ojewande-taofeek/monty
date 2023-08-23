@@ -8,7 +8,7 @@
  * Return: Always nothing
  */
 
-void parser(char *buf_cpy, unsigned int line_number, stack_t **top)
+void parser(char *buf_cpy, size_t line_number, stack_t **top)
 {
 	char *buf, *token, *delm = " \t", **buf_array;
 	unsigned int count = 0, idx;
