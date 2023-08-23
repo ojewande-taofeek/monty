@@ -25,6 +25,8 @@ void parser(char *buf_cpy, size_t line_number, stack_t **top)
 		count++;
 		token = strtok(NULL, delm);
 	}
+	if (count == 0)
+		return;
 	free(buf);
 	buf_array = malloc(sizeof(char *) * count);
 	buf = _strdup(buf_cpy);
