@@ -15,10 +15,7 @@ void parser(char *buf_cpy, size_t line_number, stack_t **top)
 
 	buf = _strdup(buf_cpy);
 	if (buf == NULL)
-	{
-		fprintf(stderr, "Error: malloc failed\n");
-		exit(EXIT_FAILURE);
-	}
+		check_malloc();
 	token = strtok(buf, delm);
 	while (token != NULL)
 	{
@@ -29,12 +26,11 @@ void parser(char *buf_cpy, size_t line_number, stack_t **top)
 		return;
 	free(buf);
 	buf_array = malloc(sizeof(char *) * count);
+	if (buf_array == NULL)
+		check_malloc();
 	buf = _strdup(buf_cpy);
 	if (buf == NULL)
-	{
-		fprintf(stderr, "Error: malloc failed\n");
-		exit(EXIT_FAILURE);
-	}
+		check_malloc();
 	token = strtok(buf, delm);
 	for (idx = 0; token != NULL; idx++)
 	{
@@ -43,8 +39,7 @@ void parser(char *buf_cpy, size_t line_number, stack_t **top)
 		{
 			free(buf);
 			free(buf_array);
-			fprintf(stderr, "Error: malloc failed\n");
-			exit(EXIT_FAILURE);
+			check_malloc();
 		}
 		token = strtok(NULL, delm);
 	}

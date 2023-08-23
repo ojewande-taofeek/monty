@@ -53,6 +53,7 @@ void pall(stack_t **stack, char **buf_array);
 void cmd_cmp(char **buf_array, size_t line, size_t count, stack_t **top);
 
 void (*cmd_caller(char **, size_t count, size_t))(stack_t **, char **);
+void check_malloc(void);
 
 void push(stack_t **stack, char **buf_array);
 stack_t *create_node(int n);

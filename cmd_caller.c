@@ -10,14 +10,25 @@
  */
 void (*cmd_caller(char **b, size_t cnt, size_t line))(stack_t **top, char **b)
 {
-	int idx = 0;
+	int idx = 0, data;
 	char *cmd = b[0];
 
+
 	instruction_t call[] = {
-	{"push", push},
-	{"pall", pall},
-	{NULL, NULL}
+		{"push", push},
+		{"pall", pall},
+		{NULL, NULL}
 	};
+
+	if (cnt > 1)
+	{
+		data = atoi(b[1]);
+		if ((strcmp("0", b[1]) != 0) && data == 0)
+		{
+			fprintf(stderr, "L%ld: unknown instruction %s\n", line, cmd);
+			exit(EXIT_FAILURE);
+		}
+	}
 
 	for (idx = 0; call[idx].opcode != NULL; idx++)
 	{
