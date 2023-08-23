@@ -2,19 +2,16 @@
 
 /**
  * cmd_caller - A funtion pointer that calls the required cmd
- * @cmd: The command to call
- * @count: The number of elements in a line
- * @stack: The top of the stack
- * @line_number: The file line number where the command is called
+ * @b: The array of buffer
+ * @cnt: The number of element in buffer
+ * @line: line number of cmd
  * Return: The specified function if successful
  *          NULL, if otherwise
  */
- 
-void (*cmd_caller(char **buf_arr, unsigned int count, unsigned int line_number)
-		)(stack_t **stack, char **buf_arr)
+void (*cmd_caller(char **b, size_t cnt, size_t line))(stack_t **top, char **b)
 {
 	int idx = 0;
-	char *cmd = buf_arr[0];
+	char *cmd = b[0];
 
 	instruction_t call[] = {
 	{"push", push},
@@ -26,9 +23,9 @@ void (*cmd_caller(char **buf_arr, unsigned int count, unsigned int line_number)
 	{
 		if (strcmp(call[idx].opcode, cmd) == 0)
 		{
-			if ((strcmp(cmd, "push") == 0) && count != 2)
-			{				
-				fprintf(stderr, "L%d: usage: push integer\n", line_number);
+			if ((strcmp(cmd, "push") == 0) && cnt != 2)
+			{
+				fprintf(stderr, "L%d: usage: push integer\n", line);
 				exit(EXIT_FAILURE);
 			}
 			return (call[idx].f);

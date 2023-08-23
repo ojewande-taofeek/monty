@@ -2,7 +2,7 @@
 
 
 /**
- * initial_check - The fucntion carry out preliminary checks
+ * intial_check - The fucntion carry out preliminary checks
  * @argc: The number of arguments passed in the cmd line
  * @argv: The pointer to the arguments passed
  * Return: EXIT_SUCCESS, if successful
@@ -21,14 +21,13 @@ int intial_check(int argc, char **argv)
 		return (EXIT_FAILURE);
 	}
 	file_name = argv[1];
-	
 	if (access(file_name, F_OK | R_OK) == -1)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", file_name);
 		return (EXIT_FAILURE);
 	}
-
-	if ((fd = open(file_name, O_RDWR)) == -1)
+	fd = open(file_name, O_RDWR);
+	if (fd == -1)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", file_name);
 		return (EXIT_FAILURE);
