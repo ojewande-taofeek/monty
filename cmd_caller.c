@@ -28,6 +28,11 @@ void (*cmd_caller(char **b, size_t cnt, size_t line))(stack_t **top, char **b)
 				fprintf(stderr, "L%ld: usage: push integer\n", line);
 				exit(EXIT_FAILURE);
 			}
+			if (!(strcmp(cmd, "push") == 0) && cnt > 1)
+			{
+				fprintf(stderr, "L%ld: unknown instruction %s\n", line, cmd);
+				exit(EXIT_FAILURE);
+			}
 			return (call[idx].f);
 		}
 	}
