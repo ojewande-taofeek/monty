@@ -36,5 +36,6 @@ void (*cmd_caller(char **b, size_t cnt, size_t line))(stack_t **top, char **b)
 			return (call[idx].f);
 		}
 	}
-	return (NULL);
+	fprintf(stderr, "L%ld: unknown instruction %s\n", line, cmd);
+	exit(EXIT_FAILURE);
 }
