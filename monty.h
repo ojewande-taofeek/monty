@@ -50,5 +50,6 @@ void pall(stack_t **top, unsigned int line_number);
 void free_all(stack_t **h);
 int intial_check(int argc, char **argv);
 void check_malloc(void);
+void pint(stack_t **stack, unsigned int line);
 
 #endif /* MONTY_H */

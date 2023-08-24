@@ -82,3 +82,22 @@ void pall(stack_t **stack, unsigned int line)
 		current = current->next;
 	}
 }
+/**
+ * pint - The function prints the top of a stack
+ * @stack: The top of the stack
+ * @line: The line number
+ * Return: Nothing
+ */
+
+void pint(stack_t **stack, unsigned int line)
+{
+	stack_t *current = *stack;
+
+	if (current == NULL)
+	{
+		fprintf(stderr, "L%d: can't pint, stack empty\n", line);
+		exit(EXIT_FAILURE);
+	}
+	else
+		printf("%d\n", current->n);
+}

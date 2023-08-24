@@ -16,6 +16,7 @@ void cmd_caller(char *cmd, unsigned int line, stack_t **top)
 	instruction_t call[] = {
 		{"push", push},
 		{"pall", pall},
+		{"pint", pint},
 		{NULL, NULL}
 	};
 
