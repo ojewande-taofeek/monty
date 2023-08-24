@@ -72,6 +72,13 @@ void pstr(stack_t **stack, unsigned int line_number)
 	putchar('\n');
 }
 
+/**
+* rotl - rotates the stack to the top
+* @stack: Pointer to the stack
+* @line_number: The line number
+* Return: Nothing
+*/
+
 void rotl(stack_t **stack, unsigned int line_number)
 {
 	stack_t *last;
@@ -90,6 +97,13 @@ void rotl(stack_t **stack, unsigned int line_number)
 		(*stack)->prev = last;
 	}
 }
+
+/**
+* rotr - rotates the stack to the bottom
+* @stack: Pointer to the stack
+* @line_number: The line number
+* Return: Nothing
+*/
 
 void rotr(stack_t **stack, unsigned int line_number)
 {
