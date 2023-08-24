@@ -18,14 +18,14 @@ int intial_check(int argc, char **argv)
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
-		return (EXIT_FAILURE);
+		exit(EXIT_FAILURE);
 	}
 	file_name = argv[1];
 	fd = open(file_name, O_RDONLY);
 	if (fd == -1)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", file_name);
-		return (EXIT_FAILURE);
+		exit(EXIT_FAILURE);
 	}
 	return (fd);
 }

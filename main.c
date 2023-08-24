@@ -11,13 +11,11 @@
 int main(int argc, char **argv)
 {
 	ssize_t fd, read_b, i, j, read_left;
-	size_t line = 0;
-	char *file_name, buffer[MAX_LENGTH], *buf_cpy;
+	unsigned int line = 0;
+	char *file_name, buffer[MAX_LENGTH], *buf_cpy, *cmd;
 	stack_t *top = NULL;
 
 	fd = intial_check(argc, argv);
-	if (fd == 1)
-		return (EXIT_FAILURE);
 	file_name = argv[1];
 	read_b = read(fd, buffer, MAX_LENGTH);
 	if (read_b == -1)
@@ -38,7 +36,9 @@ int main(int argc, char **argv)
 			strncpy(buf_cpy, buffer, j);
 			buf_cpy[j] = '\0';
 			line++;
-			parser(buf_cpy, line, &top);
+			cmd = strtok(buf_cpy, " \t");
+			if (cmd)
+				cmd_caller(cmd, line, &top);
 			free(buf_cpy);
 			read_left = read_b - (i + 1);
 			read_b = read_left;
@@ -47,6 +47,7 @@ int main(int argc, char **argv)
 			j = -1;
 		}
 	}
+	free_all(&top);
 	close(fd);
 	return (EXIT_SUCCESS);
 }

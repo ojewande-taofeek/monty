@@ -2,16 +2,15 @@
 
 /**
  * cmd_caller - A funtion pointer that calls the required cmd
- * @b: The array of buffer
- * @cnt: The number of element in buffer
- * @line: line number of cmd
+ * @cmd: The cmd to execute
+ * @line: The line number
+ * @top: The top of stack
  * Return: The specified function if successful
  *          NULL, if otherwise
  */
-void (*cmd_caller(char **b, size_t cnt, size_t line))(stack_t **top, char **b)
+void cmd_caller(char *cmd, unsigned int line, stack_t **top)
 {
-	int idx = 0, data;
-	char *cmd = b[0];
+	int idx = 0;
 
 
 	instruction_t call[] = {
@@ -20,30 +19,15 @@ void (*cmd_caller(char **b, size_t cnt, size_t line))(stack_t **top, char **b)
 		{NULL, NULL}
 	};
 
-	if (cnt > 1 && (strcmp(cmd, "push") == 0))
-	{
-		data = atoi(b[1]);
-		if (strcmp("0", b[1]) == 0 && data == 0)
-			;
-		else if (data == 0)
-		{
-			fprintf(stderr, "L%ld: usage: push integer\n", line);
-			exit(EXIT_FAILURE);
-		}
-	}
 
 	for (idx = 0; call[idx].opcode != NULL; idx++)
 	{
 		if (strcmp(call[idx].opcode, cmd) == 0)
 		{
-			if ((strcmp(cmd, "push") == 0) && cnt < 2)
-			{
-				fprintf(stderr, "L%ld: usage: push integer\n", line);
-				exit(EXIT_FAILURE);
-			}
-			return (call[idx].f);
+			call[idx].f(top, line);
+			return;
 		}
 	}
-	fprintf(stderr, "L%ld: unknown instruction %s\n", line, cmd);
+	fprintf(stderr, "L%d: unknown instruction %s\n", line, cmd);
 	exit(EXIT_FAILURE);
 }

@@ -39,24 +39,16 @@ typedef struct stack_s
 typedef struct instruction_s
 {
 	char *opcode;
-	void (*f)(stack_t **stack, char **buf_array);
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
 char *_strdup(char *str);
-
-extern stack_t *top;
-
+void cmd_caller(char *cmd, unsigned int line, stack_t **top);
+stack_t *create_node(int n);
+void push(stack_t **top, unsigned int line_number);
+void pall(stack_t **top, unsigned int line_number);
+void free_all(stack_t **h);
 int intial_check(int argc, char **argv);
-void parser(char *buf_cpy, size_t line, stack_t **top);
-
-void pall(stack_t **stack, char **buf_array);
-void cmd_cmp(char **buf_array, size_t line, size_t count, stack_t **top);
-
-void (*cmd_caller(char **, size_t count, size_t))(stack_t **, char **);
 void check_malloc(void);
 
-int is_empty(stack_t *stack);
-
-void push(stack_t **stack, char **buf_array);
-stack_t *create_node(int n);
 #endif /* MONTY_H */

@@ -29,3 +29,23 @@ char *_strdup(char *str)
 	}
 	return (dup);
 }
+
+/**
+ * free_all - The function frees the DLL
+ * @top: The top of stack
+ * Return: Nothing
+ */
+
+
+void free_all(stack_t **top)
+{
+	stack_t *current = *top;
+	stack_t *tmp = NULL;
+
+	while (current)
+	{
+		tmp = current->next;
+		free(current);
+		current = tmp;
+	}
+}

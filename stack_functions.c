@@ -10,10 +10,7 @@ stack_t *create_node(int n)
 	stack_t *new_Node = malloc(sizeof(stack_t));
 
 	if (new_Node == NULL)
-	{
-		fprintf(stderr, "Error: malloc failed\n");
-		exit(EXIT_FAILURE);
-	}
+		check_malloc();
 	new_Node->n = n;
 	new_Node->prev = NULL;
 	new_Node->next = NULL;
@@ -35,15 +32,26 @@ int is_empty(stack_t *stack)
 
 /**
  * push - The function that push to the top of the stack
- * Return: Nothing
  * @stack: The top of the stack
- * @buf_array: An array to get the data from
+ * @line: The line number
+ * Return: Nothing
  */
 
-void push(stack_t **stack, char **buf_array)
+void push(stack_t **stack, unsigned int line)
 {
-	int data = atoi(buf_array[1]);
-	stack_t *new_node = create_node(data);
+	int data;
+	stack_t *new_node;
+	char *num = strtok(NULL, " \n");
+
+	if (num == NULL)
+	{
+		fprintf(stderr, "L%u: usage: push integer\n", line);
+		exit(EXIT_FAILURE);
+	}
+	data = atoi(num);
+
+
+	new_node = create_node(data);
 
 	new_node->next = *stack;
 	if (*stack != NULL)
@@ -53,14 +61,14 @@ void push(stack_t **stack, char **buf_array)
 /**
  * pall - The function prints the elements in a stack
  * @stack: The top of the stack
- * @buf_array: An array to get the data from
+ * @line: The line number
  * Return: Nothing
  */
 
-void pall(stack_t **stack, char **buf_array)
+void pall(stack_t **stack, unsigned int line)
 {
 	stack_t *current = *stack;
-	(void) buf_array;
+	(void) line;
 
 
 	if (is_empty(current))
