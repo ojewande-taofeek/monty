@@ -24,6 +24,12 @@ void pchar(stack_t **stack, unsigned int line_number)
 	pop(stack, line_number);
 }
 
+/**
+* mod - Opcode that get the modulo of the top two elements on the stack
+* @stack: Pointer to the stack
+* @line_number: The line number
+* Return: Nothing
+*/
 void mod(stack_t **stack, unsigned int line_number)
 {
 	int result;
