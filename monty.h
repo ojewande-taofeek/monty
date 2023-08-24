@@ -52,5 +52,5 @@ void check_malloc(void);
 void pint(stack_t **stack, unsigned int line);
 void pop(stack_t **stack, unsigned int line);
 int is_empty(stack_t *stack);
-
+void swap(stack_t **stack, unsigned int line);
 #endif /* MONTY_H */

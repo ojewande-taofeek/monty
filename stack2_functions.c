@@ -24,3 +24,34 @@ void pop(stack_t **stack, unsigned int line)
 	current = current->next;
 	free(tmp);
 }
+
+/**
+ * swap - Swaps the topmost elements of stack
+ * @stack: The stack
+ * @line: Line number of cmd
+ * Return: Nothing
+ */
+
+void swap(stack_t **stack, unsigned int line)
+{
+	int tmp, tmp2;
+	stack_t *current = *stack;
+	int count = 0;
+
+	while (current != NULL)
+	{
+		count++;
+		current = current->next;
+	}
+
+	if (count < 2)
+	{
+		fprintf(stderr, "L%d: can't swap, stack too short\n", line);
+		exit(EXIT_FAILURE);
+	}
+	current = *stack;
+	tmp  = current->n;
+	tmp2 = current->next->n;
+	current->n = tmp2;
+	current->next->n = tmp;
+}
