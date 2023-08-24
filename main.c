@@ -46,6 +46,7 @@ int main(int argc, char **argv)
 			j = -1;
 		}
 	}
+	free_all(&top);
 	close(fd);
 	return (EXIT_SUCCESS);
 }
