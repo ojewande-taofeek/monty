@@ -50,6 +50,13 @@ void mod(stack_t **stack, unsigned int line_number)
 	pop(stack, line_number);
 }
 
+/**
+* pstr - prints the string on the stack
+* @stack: Pointer to the stack
+* @line_number: The line number
+* Return: Nothing
+*/
+
 void pstr(stack_t **stack, unsigned int line_number)
 {
 	stack_t *cur;
