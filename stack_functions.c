@@ -49,8 +49,11 @@ void push(stack_t **stack, unsigned int line)
 		exit(EXIT_FAILURE);
 	}
 	data = atoi(num);
-
-
+	if (data == 0 && (strcmp(num, "0") != 0))
+	{
+		fprintf(stderr, "L%u: usage: push integer\n", line);
+		exit(EXIT_FAILURE);
+	}
 	new_node = create_node(data);
 
 	new_node->next = *stack;
