@@ -1,6 +1,6 @@
 #include "monty.h"
 
-/*stack_t *stack = NULL;*/
+stack_t *stack = NULL;
 
 /**
 * push - A stack operation that adds an element to the stack
