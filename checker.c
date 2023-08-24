@@ -29,3 +29,17 @@ int intial_check(int argc, char **argv)
 	}
 	return (fd);
 }
+
+/**
+ * is_digit - This is a function that convers to an integer
+ * @value: This is the value
+ * Return: bool
+ */
+
+bool is_digit(const char *value)
+{
+	char *endptr;
+
+	strtol(value, &endptr, 10);
+	return (*endptr == '\0');
+}
