@@ -9,7 +9,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #define MAX_LENGTH 1024
-
+#include <stdbool.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -53,4 +53,15 @@ void pint(stack_t **stack, unsigned int line);
 void pop(stack_t **stack, unsigned int line);
 int is_empty(stack_t *stack);
 void swap(stack_t **stack, unsigned int line);
+void rotr(stack_t **stack, unsigned int line_number);
+void rotl(stack_t **stack, unsigned int line_number);
+void pstr(stack_t **stack, unsigned int line_number);
+void pchar(stack_t **stack, unsigned int line_number);
+void mod(stack_t **stack, unsigned int line_number);
+void mul(stack_t **stack, unsigned int line_number);
+void div_op(stack_t **stack, unsigned int line_number);
+void sub(stack_t **stack, unsigned int line_number);
+void nop(stack_t **stack, unsigned int line_number);
+void add(stack_t **stack, unsigned int line_number);
+bool is_digit(const char *value);
 #endif /* MONTY_H */
