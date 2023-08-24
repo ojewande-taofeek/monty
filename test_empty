@@ -1,1 +1,4 @@
-pint
+push 0
+pall
+swap
+pall

@@ -47,7 +47,7 @@ stack_t *create_node(int n);
 void push(stack_t **top, unsigned int line_number);
 void pall(stack_t **top, unsigned int line_number);
 void free_all(stack_t **head);
-int intial_check(int argc, char **argv);
+ssize_t intial_check(int argc, char **argv);
 void check_malloc(void);
 void pint(stack_t **stack, unsigned int line);
 void pop(stack_t **stack, unsigned int line);

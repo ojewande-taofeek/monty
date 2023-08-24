@@ -10,7 +10,7 @@
  */
 
 
-int intial_check(int argc, char **argv)
+ssize_t intial_check(int argc, char **argv)
 {
 	char *file_name;
 	ssize_t fd;
