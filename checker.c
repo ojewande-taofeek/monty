@@ -21,12 +21,7 @@ int intial_check(int argc, char **argv)
 		return (EXIT_FAILURE);
 	}
 	file_name = argv[1];
-	if (access(file_name, F_OK | R_OK) == -1)
-	{
-		fprintf(stderr, "Error: Can't open file %s\n", file_name);
-		return (EXIT_FAILURE);
-	}
-	fd = open(file_name, O_RDWR);
+	fd = open(file_name, O_RDONLY);
 	if (fd == -1)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", file_name);

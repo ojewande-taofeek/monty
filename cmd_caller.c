@@ -27,7 +27,6 @@ void (*cmd_caller(char **b, size_t cnt, size_t line))(stack_t **top, char **b)
 			;
 		else if (data == 0)
 		{
-			printf("Printind from else if\n");
 			fprintf(stderr, "L%ld: usage: push integer\n", line);
 			exit(EXIT_FAILURE);
 		}
