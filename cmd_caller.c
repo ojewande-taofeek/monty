@@ -17,6 +17,7 @@ void cmd_caller(char *cmd, unsigned int line, stack_t **top)
 		{"push", push},
 		{"pall", pall},
 		{"pint", pint},
+		{"pop", pop},
 		{NULL, NULL}
 	};
 

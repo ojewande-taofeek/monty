@@ -41,15 +41,16 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
-
 char *_strdup(char *str);
 void cmd_caller(char *cmd, unsigned int line, stack_t **top);
 stack_t *create_node(int n);
 void push(stack_t **top, unsigned int line_number);
 void pall(stack_t **top, unsigned int line_number);
-void free_all(stack_t **h);
+void free_all(stack_t **head);
 int intial_check(int argc, char **argv);
 void check_malloc(void);
 void pint(stack_t **stack, unsigned int line);
+void pop(stack_t **stack, unsigned int line);
+int is_empty(stack_t *stack);
 
 #endif /* MONTY_H */

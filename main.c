@@ -1,5 +1,4 @@
 #include "monty.h"
-
 /**
  * main - The programme for MONTY interpreter
  * @argc: The number of arguments passed in the command line
@@ -47,7 +46,6 @@ int main(int argc, char **argv)
 			j = -1;
 		}
 	}
-	free_all(&top);
 	close(fd);
 	return (EXIT_SUCCESS);
 }
