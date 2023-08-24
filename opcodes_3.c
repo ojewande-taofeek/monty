@@ -1,0 +1,99 @@
+#include "monty.h"
+
+/**
+* pchar - An opcode that prints the character on the stack
+* @stack: Pointer to the stack
+* @line_number: The line number
+* Return: Nothing
+*/
+void pchar(stack_t **stack, unsigned int line_number)
+{
+	if (*stack == NULL)
+	{
+		fprintf(stderr, "L%u: can't pchar, stack empty\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	if ((*stack)->n < 0 || (*stack)->n > 127)
+	{
+		fprintf(stderr, "L%u: can't pchar, value out of range\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	putchar((*stack)->n);
+	putchar('\n');
+	pop(stack, line_number);
+}
+
+void mod(stack_t **stack, unsigned int line_number)
+{
+	int result;
+
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		fprintf(stderr, "L%u: can't mod, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	if ((*stack)->n == 0)
+	{
+		fprintf(stderr, "L%u: division by zero\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	result = (*stack)->n % (*stack)->next->n;
+	(*stack)->next->n = result;
+	pop(stack, line_number);
+}
+
+void pstr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *cur;
+	(void)line_number;
+
+	cur = *stack;
+
+	while (cur != NULL && cur->n != 0 && (cur->n >= 0 && cur->n <= 127))
+	{
+		putchar(cur->n);
+		cur = cur->next;
+	}
+	putchar('\n');
+}
+
+void rotl(stack_t **stack, unsigned int line_number)
+{
+	stack_t *last;
+	(void)line_number;
+
+	if (*stack != NULL && (*stack)->next != NULL)
+	{
+		last = *stack;
+		while (last->next != NULL)
+		{
+			last = last->next;
+		}
+		(*stack)->next->prev = NULL;
+		last->next = *stack;
+		(*stack)->next = NULL;
+		(*stack)->prev = last;
+	}
+}
+
+void rotr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *current;
+	(void)line_number;
+
+	if (*stack != NULL && (*stack)->next != NULL)
+	{
+		current = *stack;
+		while (current->next != NULL)
+		{
+			current = current->next;
+		}
+		current->prev->next = NULL;
+		current->prev = NULL;
+		current->next = *stack;
+		(*stack)->prev = current;
+		*stack = current;
+	}
+}
