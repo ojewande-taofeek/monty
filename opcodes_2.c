@@ -61,7 +61,7 @@ void sub(stack_t **stack, unsigned int line_number)
 
 void div_op(stack_t **stack, unsigned int line_number)
 {
-	/*int result;*/
+	int result;
 
 	if (*stack == NULL || (*stack)->next == NULL)
 	{
@@ -74,9 +74,8 @@ void div_op(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-/*	result = ((*stack)->n / (*stack)->next->n);
-	(*stack)->next->n = result;*/
-	(*stack)->n /= (*stack)->next->n;
+	result = ((*stack)->n / (*stack)->next->n);
+	(*stack)->next->n = result;
 	pop(stack, line_number);
 }
 
