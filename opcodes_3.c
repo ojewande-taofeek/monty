@@ -21,7 +21,7 @@ void pchar(stack_t **stack, unsigned int line_number)
 	}
 	putchar((*stack)->n);
 	putchar('\n');
-	pop(stack, line_number);
+	/*pop(stack, line_number);*/
 }
 
 /**
