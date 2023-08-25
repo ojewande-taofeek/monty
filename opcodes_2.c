@@ -53,13 +53,13 @@ void sub(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * div_op - The opcode that divides the top elements on the stack
+ * div - The opcode that divides the top elements on the stack
  * @stack: Pointer to the stack
  * @line_number: Line number
  * Return: Nothing
  */
 
-void div_op(stack_t **stack, unsigned int line_number)
+void div(stack_t **stack, unsigned int line_number)
 {
 	/*int result;*/
 
@@ -76,7 +76,7 @@ void div_op(stack_t **stack, unsigned int line_number)
 
 /*	result = ((*stack)->n / (*stack)->next->n);*/
 /*	(*stack)->next->n = result; */
-	(*stack->next->n) /= (*stack)->n;
+	(*stack)->next->n /= (*stack)->n;
 	pop(stack, line_number);
 }
 

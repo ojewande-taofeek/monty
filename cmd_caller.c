@@ -22,7 +22,7 @@ void cmd_caller(char *cmd, unsigned int line, stack_t **top)
 		{"add", add},
 		{"nop", nop},
 		{"sub", sub},
-		{"div_op", div_op},
+		{"div", div},
 		{"mul", mul},
 		{"mod", mod},
 		{"pchar", pchar},
@@ -32,13 +32,11 @@ void cmd_caller(char *cmd, unsigned int line, stack_t **top)
 		{NULL, NULL}
 	};
 
-
 	if (cmd[0] == '#')
 	{
 		comment = 1;
 		return;
 	}
-
 	if (!comment)
 	{
 		for (idx = 0; call[idx].opcode != NULL; idx++)

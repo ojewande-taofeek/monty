@@ -1,11 +1,11 @@
 #include "monty.h"
 
-stack_t *stack = NULL;
+/*stack_t *stack = NULL;*/
 
 /**
 * push - A stack operation that adds an element to the stack
 * @stack: pointer to the stack
-* @line_number: value od the new node
+* @line_number: The line number
 * Return: Nothing
 */
 

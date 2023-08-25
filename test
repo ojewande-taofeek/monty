@@ -1,14 +1,9 @@
-push str 
 push 1
-push 2
-push 3
+push 10 
+push 5
                    pall
+div
 
 
 
-
-    
-push                                                  			4 
-    push 5    
-      push    6        
 pall
