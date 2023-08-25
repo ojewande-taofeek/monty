@@ -32,7 +32,7 @@ void pchar(stack_t **stack, unsigned int line_number)
 */
 void mod(stack_t **stack, unsigned int line_number)
 {
-	int result;
+	/*int result;*/
 
 	if (*stack == NULL || (*stack)->next == NULL)
 	{
@@ -45,8 +45,8 @@ void mod(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%u: division by zero\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	result = (*stack)->n % (*stack)->next->n;
-	(*stack)->next->n = result;
+	/*result = (*stack)->n % (*stack)->next->n;*/
+	(*stack)->next->n %= (*stack)->n;
 	pop(stack, line_number);
 }
 

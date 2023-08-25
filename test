@@ -1,8 +1,5 @@
-push 1
-push 10 
-#therhh 
-                   pall
-add
-
+push 72 
+push 0 
+mod
 
 pall
