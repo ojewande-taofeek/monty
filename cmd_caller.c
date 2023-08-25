@@ -11,7 +11,7 @@
 void cmd_caller(char *cmd, unsigned int line, stack_t **top)
 {
 	int idx = 0;
-
+	int comment = 0;
 
 	instruction_t call[] = {
 		{"push", push},
@@ -33,14 +33,23 @@ void cmd_caller(char *cmd, unsigned int line, stack_t **top)
 	};
 
 
-	for (idx = 0; call[idx].opcode != NULL; idx++)
+	if (cmd[0] == '#')
 	{
-		if (strcmp(call[idx].opcode, cmd) == 0)
-		{
-			call[idx].f(top, line);
-			return;
-		}
+		comment = 1;
+		return;
 	}
-	fprintf(stderr, "L%d: unknown instruction %s\n", line, cmd);
-	exit(EXIT_FAILURE);
+
+	if (!comment)
+	{
+		for (idx = 0; call[idx].opcode != NULL; idx++)
+		{
+			if (strcmp(call[idx].opcode, cmd) == 0)
+			{
+				call[idx].f(top, line);
+				return;
+			}
+		}
+		fprintf(stderr, "L%d: unknown instruction %s\n", line, cmd);
+		exit(EXIT_FAILURE);
+	}
 }
