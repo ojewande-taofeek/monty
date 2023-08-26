@@ -8,7 +8,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
-#define MAX_LENGTH 1024
+#define MAX_LENGTH 27000
 #include <stdbool.h>
 #define div my_div
 /**
