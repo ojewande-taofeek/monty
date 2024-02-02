@@ -25,6 +25,8 @@ void cmd(stack_t **head, char *line_tok, unsigned int line_number)
 		{"mod", mod},
 		{NULL, NULL}
 	};
+	if (strcmp(line_tok, "#") == 0)
+		return;
 
 	idx = 0;
 	while (arr[idx].opcode)
