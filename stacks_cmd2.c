@@ -26,3 +26,16 @@ void add(stack_t **head, unsigned int line_number)
 	(*head) = current->next;
 	free(current);
 }
+
+/**
+ * nop - does nothing
+ * @head: Top of stack
+ * @line_number: The line number of tokenized command
+ * Return: Always nothing
+ */
+
+void nop(stack_t **head, unsigned int line_number)
+{
+	(void) head;
+	(void) line_number;
+}

@@ -18,6 +18,7 @@ void cmd(stack_t **head, char *line_tok, unsigned int line_number)
 		{"pop", pop},
 		{"swap", swap},
 		{"add", add},
+		{"nop", nop},
 		{NULL, NULL}
 	};
 
