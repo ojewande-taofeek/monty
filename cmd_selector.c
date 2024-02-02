@@ -20,6 +20,7 @@ void cmd(stack_t **head, char *line_tok, unsigned int line_number)
 		{"add", add},
 		{"nop", nop},
 		{"sub", sub},
+		{"div", div},
 		{NULL, NULL}
 	};
 

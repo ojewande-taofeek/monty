@@ -9,7 +9,7 @@
 #include <fcntl.h>
 #include <string.h>
 #include <stdbool.h>
-
+#define div my_div
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -51,4 +51,5 @@ void swap(stack_t **head, unsigned int line_number);
 void add(stack_t **head, unsigned int line_number);
 void nop(stack_t **head, unsigned int line_number);
 void sub(stack_t **head, unsigned int line_number);
+void div(stack_t **head, unsigned int line_number);
 #endif /* MONTY.H */
