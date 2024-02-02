@@ -15,6 +15,7 @@ void cmd(stack_t **head, char *line_tok, unsigned int line_number)
 		{"push", push},
 		{"pall", pall},
 		{"pint", pint},
+		{"pop", pop},
 		{NULL, NULL}
 	};
 

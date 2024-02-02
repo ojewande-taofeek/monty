@@ -45,4 +45,6 @@ void cmd(stack_t **head, char *line_tok, unsigned int line_number);
 void free_stack(stack_t **head);
 bool check_digits(char *str);
 void pint(stack_t **head, unsigned int line_number);
+void pop(stack_t **head, unsigned int line_number);
+void pop(stack_t **head, unsigned int line_number);
 #endif /* MONTY.H */

@@ -75,3 +75,23 @@ void pint(stack_t **head, unsigned int line_number)
 	}
 	printf("%d\n", (*head)->n);
 }
+
+/**
+ * pop - removes the top element of the stack
+ * @head: Top of stack
+ * @line_number: The line number of tokenized command
+ * Return: Always nothing
+ */
+
+void pop(stack_t **head, unsigned int line_number)
+{
+	stack_t *current = *head;
+
+	if (*head == NULL)
+	{
+		fprintf(stderr, "L%u: can't pop an empty stack\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	(*head) = current->next;
+	free(current);
+}
