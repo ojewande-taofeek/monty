@@ -83,7 +83,7 @@ void div(stack_t **head, unsigned int line_number)
 	}
 	if (current->n == 0)
 	{
-		fprintf(stderr, "L%u: division by 0\n", line_number);
+		fprintf(stderr, "L%u: division by zero\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
