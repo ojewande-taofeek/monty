@@ -14,6 +14,7 @@ void cmd(stack_t **head, char *line_tok, unsigned int line_number)
 	instruction_t arr[] = {
 		{"push", push},
 		{"pall", pall},
+		{"pint", pint},
 		{NULL, NULL}
 	};
 

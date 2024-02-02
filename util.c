@@ -26,11 +26,14 @@ void free_stack(stack_t **head)
 	stack_t *current = *head;
 	stack_t *tmp = NULL;
 
-	while (current)
+	if (*head)
 	{
-		tmp = current->next;
-		free(current);
-		current = tmp;
+		while (current)
+		{
+			tmp = current->next;
+			free(current);
+			current = tmp;
+		}
 	}
 }
 

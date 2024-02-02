@@ -58,3 +58,20 @@ void pall(stack_t **head, unsigned int line_number)
 		current = current->next;
 	}
 }
+
+/**
+ * pint - print data at the top of stack
+ * @head: Top of stack
+ * @line_number: The line number of tokenized command
+ * Return: Always nothing
+ */
+
+void pint(stack_t **head, unsigned int line_number)
+{
+	if ((*head) == NULL)
+	{
+		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	printf("%d\n", (*head)->n);
+}
