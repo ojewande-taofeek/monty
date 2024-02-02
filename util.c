@@ -1,6 +1,21 @@
 #include "monty.h"
 
 /**
+ * check_digits - Function that checks number
+ * @str: The str to be checked
+ * Return: True, if a number and False if otherwise
+ */
+
+bool check_digits(char *str)
+{
+	char *endptr;
+
+	strtol(str, &endptr, 10);
+	return (*endptr == '\0');
+}
+
+
+/**
  * free_stack - Function to free all nodes on stacks
  * @head: Top of stack
  * Return: Always Nothing
