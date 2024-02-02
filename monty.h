@@ -41,4 +41,5 @@ char *_strdup(char *str);
 void pall(stack_t **head, unsigned int line_number);
 void push(stack_t **head, unsigned int line_number);
 void cmd(stack_t **head, char *line_tok, unsigned int line_number);
+void free_stack(stack_t **head);
 #endif /* MONTY.H */
