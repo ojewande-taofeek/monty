@@ -116,3 +116,5 @@ void mul(stack_t **head, unsigned int line_number)
 	(*head)->prev = NULL;
 	free(current);
 }
+
+

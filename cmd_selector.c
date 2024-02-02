@@ -22,6 +22,7 @@ void cmd(stack_t **head, char *line_tok, unsigned int line_number)
 		{"sub", sub},
 		{"div", div},
 		{"mul", mul},
+		{"mod", mod},
 		{NULL, NULL}
 	};
 
