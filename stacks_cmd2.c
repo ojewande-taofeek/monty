@@ -16,7 +16,7 @@ void add(stack_t **head, unsigned int line_number)
 		current = current->next;
 	if (counter < 2)
 	{
-		fprintf(stderr, "L%u: can't add, stack too short", line_number);
+		fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	current = *head;
