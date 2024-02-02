@@ -95,3 +95,36 @@ void pop(stack_t **head, unsigned int line_number)
 	(*head) = current->next;
 	free(current);
 }
+
+/**
+ * swap - swaps the top two elements of the stack
+ * @head: Top of stack
+ * @line_number: The line number of tokenized command
+ * Return: Always nothing
+ */
+
+void swap(stack_t **head, unsigned int line_number)
+{
+	int counter;
+	stack_t *current, *tmp;
+
+	current = *head;
+	for (counter = 0; current != NULL; counter++)
+	{
+		current = current->next;
+	}
+	if (counter < 2)
+	{
+		fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	current = *head;
+	tmp = (*head)->next;
+	current->next = tmp->next;
+	current->prev = tmp;
+	tmp->next = current;
+	tmp->prev = NULL;
+	if (current->next != NULL)
+		current->next->prev = current;
+	*head = tmp;
+}
