@@ -55,3 +55,31 @@ void pchar(stack_t **head, unsigned int line_number)
 	}
 	printf("%c\n", num);
 }
+
+
+/**
+ * pstr - prints the string starting at the top of the stack,
+ *        followed by a new line
+ * @head: Top of stack
+ * @line_number: The line number of tokenized command
+ * Return: Always nothing
+ */
+
+void pstr(stack_t **head, unsigned int line_number)
+{
+	stack_t *current;
+	(void) line_number;
+
+	if (!(*head))
+	{
+		putchar('\n');
+		return;
+	}
+	current = *head;
+	while (current && current->n != 0)
+	{
+		putchar(current->n);
+		current = current->next;
+	}
+	putchar('\n');
+}
