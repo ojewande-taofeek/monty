@@ -39,3 +39,27 @@ void nop(stack_t **head, unsigned int line_number)
 	(void) head;
 	(void) line_number;
 }
+
+/**
+ * sub - subtracts data to the top of stack
+ * @head: Top of stack
+ * @line_number: The line number of tokenized command
+ * Return: Always nothing
+ */
+
+void sub(stack_t **head, unsigned int line_number)
+{
+	int subtract;
+	stack_t *current = *head;
+
+	if (!(current && current->next))
+	{
+		fprintf(stderr, "L%u: can't sub, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	subtract = (current->next->n) - (current->n);
+	current->next->n = subtract;
+	(*head) = current->next;
+	(*head)->prev = NULL;
+	free(current);
+}
