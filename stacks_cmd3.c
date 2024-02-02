@@ -76,7 +76,7 @@ void pstr(stack_t **head, unsigned int line_number)
 		return;
 	}
 	current = *head;
-	while (current && current->n != 0)
+	while (current && current->n > 0 && current->n <= 127)
 	{
 		putchar(current->n);
 		current = current->next;
