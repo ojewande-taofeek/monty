@@ -1,6 +1,25 @@
 #include "monty.h"
 
 /**
+ * free_stack - Function to free all nodes on stacks
+ * @head: Top of stack
+ * Return: Always Nothing
+ */
+
+void free_stack(stack_t **head)
+{
+	stack_t *current = *head;
+	stack_t *tmp = NULL;
+
+	while (current)
+	{
+		tmp = current->next;
+		free(current);
+		current = tmp;
+	}
+}
+
+/**
  * _strdup - The function returns a pointer to a newly allocated space in
  *           memory, which conatins a copy of the string given as a parameter
  * @str: The string constant formal parameter
