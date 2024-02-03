@@ -112,3 +112,30 @@ void rotl(stack_t **head, unsigned int line_number)
 		first->prev = last;
 	}
 }
+
+/**
+ * rotr - rotates the stack to the bottom
+ * @head: Top of stack
+ * @line_number: The line number of tokenized command
+ * Return: Always nothing
+ */
+
+void rotr(stack_t **head, unsigned int line_number)
+{
+	stack_t *current, *first, *last;
+	(void) line_number;
+
+	if (*head && (*head)->next)
+	{
+		current = *head;
+		first = *head;
+		while (current->next)
+			current = current->next;
+		last = current;
+		current->prev->next = NULL;
+		last->next = first;
+		last->prev = NULL;
+		first->prev = last;
+		(*head) = last;
+	}
+}
