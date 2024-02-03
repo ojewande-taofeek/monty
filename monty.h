@@ -10,6 +10,9 @@
 #include <string.h>
 #include <stdbool.h>
 #define div my_div
+
+extern char *mode;
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
