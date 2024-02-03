@@ -27,15 +27,9 @@ void push(stack_t **head, unsigned int line_number)
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
-	new_node->n = number;
-	new_node->prev = NULL;
-	new_node->next = *head;
-	if (*head != NULL)
-	{
-		(*head)->prev = new_node;
-	}
-	*head = new_node;
+	call_push(new_node, number, head);
 }
+
 
 /**
  * pall - print all data on stack

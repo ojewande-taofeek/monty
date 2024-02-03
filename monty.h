@@ -61,4 +61,5 @@ void pchar(stack_t **head, unsigned int line_number);
 void pstr(stack_t **head, unsigned int line_number);
 void rotl(stack_t **head, unsigned int line_number);
 void rotr(stack_t **head, unsigned int line_number);
+void call_push(stack_t *new_node, int number, stack_t **head);
 #endif /* MONTY.H */

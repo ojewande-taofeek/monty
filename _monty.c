@@ -6,7 +6,7 @@
  * Return: 0, if successful
  *         Error message, if otherwise
  */
-
+char *mode = "stack";
 int main(int argc, char *argv[])
 {
 	FILE *fd;
@@ -32,6 +32,16 @@ int main(int argc, char *argv[])
 	{
 		line_tok = strtok(line, delm);
 		line_number++;
+		if (strcmp(line_tok, "queue") == 0)
+		{
+			mode = "queue";
+			continue;
+		}
+		if (strcmp(line_tok, "stack") == 0)
+		{
+			mode = "stack";
+			continue;
+		}
 		if (line_tok != NULL)
 			cmd(&head, line_tok, line_number);
 	}
