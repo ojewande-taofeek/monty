@@ -25,6 +25,7 @@ void cmd(stack_t **head, char *line_tok, unsigned int line_number)
 		{"mod", mod},
 		{"pchar", pchar},
 		{"pstr", pstr},
+		{"rotl", rotl},
 		{NULL, NULL}
 	};
 	if (line_tok[0] == '#')

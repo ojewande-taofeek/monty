@@ -83,3 +83,32 @@ void pstr(stack_t **head, unsigned int line_number)
 	}
 	putchar('\n');
 }
+
+
+
+/**
+ * rotl - rotates the stack to the top
+ * @head: Top of stack
+ * @line_number: The line number of tokenized command
+ * Return: Always nothing
+ */
+
+void rotl(stack_t **head, unsigned int line_number)
+{
+	stack_t *first, *last, *current;
+	(void) line_number;
+
+	current = *head;
+	if (current && current->next)
+	{
+		first = *head;
+		while (current->next)
+			current = current->next;
+		last = current;
+		(*head) = first->next;
+		(*head)->prev = NULL;
+		first->next = NULL;
+		last->next = first;
+		first->prev = last;
+	}
+}
